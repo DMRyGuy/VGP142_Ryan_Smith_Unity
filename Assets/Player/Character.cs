@@ -88,7 +88,7 @@ public class Character : MonoBehaviour
             moveDir.y -= gravity * Time.deltaTime;
             controller.Move(moveDir * Time.deltaTime);
 
-            if (Input.GetButtonDown("Fire"))
+            if (Input.GetButtonDown("Fire1"))
                 Fire();
         }
 
