@@ -11,19 +11,19 @@ public class Character : MonoBehaviour
 
     [Header("Player Settings")]
     [Space(10)]
-    [Tooltip("Speed value between 1 and 6")]
-    [Range(1.0f, 6.0f)]
+    [Tooltip("Speed value between 1 and 10")]
+    [Range(1.0f, 10.0f)]
 
-    public float speed = 6;
+    public float speed = 10;
     public float gravity = 9.81f;
-    public float jumpSpeed = 10.0f;
+    public float jumpSpeed = 25.0f;
   
 
     Vector3 moveDir;
 
     [Header("Weapon Settings")]
     [Space(10)]
-    public float projectileForce = 10.0f;
+    public float projectileForce = 60.0f;
     public Rigidbody projectilePrefab;
     public Transform projectileSpawnPoint;
 
@@ -38,13 +38,13 @@ public class Character : MonoBehaviour
 
             if (speed <= 0.0f)
             {
-                speed = 6.0f;
+                speed = 25.0f;
                 //throw new UnassignedReferenceException("Speed not set on " + name + "defaulting to " + speed.ToString());
             }
 
             if (jumpSpeed <= 0)
             {
-                jumpSpeed = 10.0f;
+                jumpSpeed = 25.0f;
             }
         }
 
