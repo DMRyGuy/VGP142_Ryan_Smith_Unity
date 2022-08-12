@@ -103,6 +103,10 @@ public class Character : MonoBehaviour
                 Destroy(temp.gameObject, 2.0f);
             }
         }
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+
+    }
     }
             
 

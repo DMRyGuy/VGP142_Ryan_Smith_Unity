@@ -21,6 +21,8 @@ public class ObjectSpawnPoints : MonoBehaviour
             Debug.Log("Objects are placed. You can continue.");
         }
     }
+
+    //void onTriggerEnter
     void Update()
     {
         
