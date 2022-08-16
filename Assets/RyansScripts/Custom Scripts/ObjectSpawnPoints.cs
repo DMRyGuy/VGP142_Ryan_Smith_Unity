@@ -13,7 +13,7 @@ public class ObjectSpawnPoints : MonoBehaviour
         try
         {
             Instantiate(collectiblePrefabArray[Random.Range(0, 4)], transform.position, transform.rotation);
-            throw new UnassignedReferenceException(" Collectible not appearing " + name + " back off get your own sandwich. ");
+            // throw new UnassignedReferenceException(" Collectible not appearing " + name + " back off get your own sandwich. ");
         }
 
         finally
@@ -25,6 +25,6 @@ public class ObjectSpawnPoints : MonoBehaviour
     //void onTriggerEnter
     void Update()
     {
-        
+
     }
 }

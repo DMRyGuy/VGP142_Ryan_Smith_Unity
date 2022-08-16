@@ -17,7 +17,7 @@ public class Character : MonoBehaviour
     public float speed = 10;
     public float gravity = 9.81f;
     public float jumpSpeed = 25.0f;
-  
+
 
     Vector3 moveDir;
 
@@ -60,7 +60,7 @@ public class Character : MonoBehaviour
         {
             Debug.Log("this code always runs");
         }*/
-        
+
     }
 
     // Update is called once per frame
@@ -69,28 +69,27 @@ public class Character : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        /*try
-        {*/
-            if (controller.isGrounded)
+
+        if (controller.isGrounded)
+        {
+            moveDir = new Vector3(horizontal, 0.0f, vertical);
+            moveDir *= speed;
+
+            moveDir = transform.TransformDirection(moveDir);
+
+            if (Input.GetButtonDown("Jump"))
             {
-                moveDir = new Vector3(horizontal, 0.0f, vertical);
-                moveDir *= speed;
-
-                moveDir = transform.TransformDirection(moveDir);
-
-                if (Input.GetButtonDown("Jump"))
-                {
-                    moveDir.y = jumpSpeed;
-                }
-
+                moveDir.y = jumpSpeed;
             }
 
-            moveDir.y -= gravity * Time.deltaTime;
-            controller.Move(moveDir * Time.deltaTime);
-
-            if (Input.GetButtonDown("Fire1"))
-                Fire();
         }
+
+        moveDir.y -= gravity * Time.deltaTime;
+        controller.Move(moveDir * Time.deltaTime);
+
+        if (Input.GetButtonDown("Fire1"))
+            Fire();
+
 
         void Fire()
         {
@@ -103,11 +102,17 @@ public class Character : MonoBehaviour
                 Destroy(temp.gameObject, 2.0f);
             }
         }
-    private void OnControllerColliderHit(ControllerColliderHit hit)
-    {
 
+        void OnTriggerEnter(Collider collision)
+        {
+            if (collision.gameObject.tag == "Pickups")
+            {
+                Destroy(collision.gameObject);
+            }
+        }
     }
-    }
+
+}
             
 
 

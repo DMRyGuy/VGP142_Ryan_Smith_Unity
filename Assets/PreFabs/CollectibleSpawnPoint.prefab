@@ -44,4 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c7fd7d6af47d85478e123026148ecbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectiblePrefabArray: []
+  collectiblePrefabArray:
+  - {fileID: 100000, guid: ad7be024544524142af05bc5b4ec7e1c, type: 3}
+  - {fileID: 100000, guid: e71a9a46d774b7044bf74e6f2a6f8209, type: 3}
+  - {fileID: 100000, guid: b40aadcdcfda2064089d398a26aaed1b, type: 3}
+  - {fileID: 100000, guid: 0765c9a6e7420f140809035d31d36a64, type: 3}
+  - {fileID: 100000, guid: aeac9df0d563b114c85eca1dd74b4885, type: 3}

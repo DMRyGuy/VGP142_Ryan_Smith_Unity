@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: a5d7c6147103b994fa601bb3bd97ca57
+guid: 19e6e2496ea44364092481f7cee5271d
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: sword and shield reverse walk
+    second: s&s right strafe
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -36,11 +36,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: sword and shield reverse walk
+      name: s&s right strafe
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 39
+      lastFrame: 34
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
