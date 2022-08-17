@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(CharacterController), typeof(Animator))]
+
 
 public class Character : MonoBehaviour
 {
     CharacterController controller;
+    Animator anim;
 
     [Header("Player Settings")]
     [Space(10)]
@@ -34,6 +36,7 @@ public class Character : MonoBehaviour
         //try
         {
             controller = GetComponent<CharacterController>();
+            anim = GetComponent<Animator>();
             controller.minMoveDistance = 0.0f;
 
             if (speed <= 0.0f)
@@ -86,6 +89,9 @@ public class Character : MonoBehaviour
 
         moveDir.y -= gravity * Time.deltaTime;
         controller.Move(moveDir * Time.deltaTime);
+
+        anim.SetFloat("Horizontal", horizontal);
+        anim.SetFloat("Vertical", vertical);
 
         if (Input.GetButtonDown("Fire1"))
             Fire();
