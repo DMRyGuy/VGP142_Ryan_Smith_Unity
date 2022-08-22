@@ -26,5 +26,14 @@ public class ObjectSpawnPoints : MonoBehaviour
     void Update()
     {
 
+    // On collision with object tagged player, destroy object, not object spawn point
+       // OnTriggerEnter
+    // Add Collison detection to objects
+    }
+
+    void Collect()
+    {
+       // collision.collectiblePrefabArray("Player");
+       // destroy.GameObject;
     }
 }

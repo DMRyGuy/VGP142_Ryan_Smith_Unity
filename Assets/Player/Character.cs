@@ -85,6 +85,14 @@ public class Character : MonoBehaviour
                 moveDir.y = jumpSpeed;
             }
 
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                anim.SetTrigger("Punch");
+            }
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                anim.SetTrigger("Kick");
+            }
         }
 
         moveDir.y -= gravity * Time.deltaTime;
@@ -108,16 +116,15 @@ public class Character : MonoBehaviour
                 Destroy(temp.gameObject, 2.0f);
             }
         }
-
-        void OnTriggerEnter(Collider collision)
-        {
-            if (collision.gameObject.tag == "Pickups")
-            {
-                Destroy(collision.gameObject);
-            }
-        }
     }
 
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.tag == "PickUps")
+        {
+            Destroy(collision.gameObject);
+        }
+    }
 }
             
 

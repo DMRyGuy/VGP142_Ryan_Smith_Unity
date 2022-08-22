@@ -6,6 +6,8 @@ TagManager:
   tags:
   - PickUps
   - Enemy
+  - Punch
+  - Kick
   layers:
   - Default
   - TransparentFX
