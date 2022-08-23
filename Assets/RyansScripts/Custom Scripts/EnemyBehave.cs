@@ -17,9 +17,9 @@ public class EnemyBehave : MonoBehaviour
         nEnemy = transform.GetChild(0).gameObject;
 
         Vector3 enemyPos = nEnemy.transform.position;
-        enemyPos.y += 5.0f;
+        enemyPos.y += 1.5f;
 
-        iTween.MoveTo(nEnemy, enemyPos, 3.0f);
+        iTween.MoveTo(nEnemy, enemyPos, 200.0f);
     }
 
     // Update is called once per frame
