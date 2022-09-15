@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Punch
   - Kick
+  - DoT
+  - PatrolNode
   layers:
   - Default
   - TransparentFX
