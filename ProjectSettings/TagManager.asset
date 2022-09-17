@@ -10,6 +10,8 @@ TagManager:
   - Kick
   - DoT
   - PatrolNode
+  - Attach
+  - Weapon
   layers:
   - Default
   - TransparentFX

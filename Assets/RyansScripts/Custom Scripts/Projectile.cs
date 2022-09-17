@@ -5,16 +5,16 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
 
-    EnemyKill enemyKill;
+    //EnemyKill enemyKill;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
         {
-            enemyKill = other.gameObject.GetComponent<EnemyKill>();
-            enemyKill.health--;
-            Destroy(other.gameObject, 4f); // this destroys the enemy
-            Debug.Log(enemyKill.health);
+            //enemyKill = other.gameObject.GetComponent<EnemyKill>();
+            //enemyKill.health--;
+            Destroy(other.gameObject); // this destroys the enemy
+           
         }
     }
 }

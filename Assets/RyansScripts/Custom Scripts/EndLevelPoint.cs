@@ -8,7 +8,7 @@ public class EndLevelPoint : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
-             SceneManager.LoadScene("EndGame");
+             SceneManager.LoadScene("GameOver");
     }
      //GameManager.instance.EndGame();
 }

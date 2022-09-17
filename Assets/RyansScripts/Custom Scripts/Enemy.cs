@@ -113,14 +113,12 @@ public class Enemy : MonoBehaviour
         
         if (health <= 0)
         {
-            
             Destroy(agent);
-            //Death();
+            Death();
         }
     }
-    /*private void Death()
+    private void Death()
     {
-
         Instantiate(collectiblePrefabArray[0], transform.position, transform.rotation);
-    }*/
+    }
 }
