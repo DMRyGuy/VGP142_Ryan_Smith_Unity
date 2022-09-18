@@ -15,9 +15,9 @@ public class Character : MonoBehaviour
     [Header("Player Settings")]
     [Space(10)]
     [Tooltip("Speed value between 1 and 10")]
-    [Range(1.0f, 10.0f)]
+    [Range(1.0f, 900.0f)]
 
-    public float speed = 10;
+    public float speed = 200;
     public float gravity = 9.81f;
     public float jumpSpeed = 25.0f;
 
