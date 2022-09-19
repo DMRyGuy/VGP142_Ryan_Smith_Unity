@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 [RequireComponent(typeof(CharacterController), typeof(Animator))]
 
@@ -11,6 +12,17 @@ public class Character : MonoBehaviour
 {
     CharacterController controller;
     Animator anim;
+    ObjectSounds sfxManager;
+
+    public AudioClip jumpSound;
+    public AudioMixerGroup soundFXGroup;
+    public AudioClip pickupSound;
+    public AudioClip deathSound;
+    public AudioClip hitSound;
+    public AudioClip punchSound;
+    public AudioClip kickSound;
+    public AudioClip footstepSound;
+    //public AudioClip fire1;
 
     [Header("Player Settings")]
     [Space(10)]
@@ -70,6 +82,14 @@ public class Character : MonoBehaviour
         {
             Debug.Log("this code always runs");
         }
+        healthBar = FindObjectOfType<HealthBar>();
+        //currentHealth = maxHealth;
+        //healthBar.SetMaxHealth(maxHealth);
+
+        if (!sfxManager)
+        {
+            sfxManager = gameObject.AddComponent<ObjectSounds>();
+        }
 
     }
 
@@ -89,6 +109,7 @@ public class Character : MonoBehaviour
 
             if (Input.GetButtonDown("Jump"))
             {
+                sfxManager.Play(jumpSound, soundFXGroup);
                 moveDir.y = jumpSpeed;
             }
 
@@ -118,7 +139,7 @@ public class Character : MonoBehaviour
             {
                 Rigidbody temp = Instantiate(projectilePrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
 
-                FindObjectOfType<AudioManager>().Play("magic_03");
+                
                 temp.AddForce(projectileSpawnPoint.forward * projectileForce, ForceMode.Impulse);
 
                 Destroy(temp.gameObject, 2.0f);
@@ -144,14 +165,23 @@ public class Character : MonoBehaviour
         }
     }
 
-   public void TakeDamage(int damage)
+  public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
         if (currentHealth <= 0)
         {
-           SceneManager.LoadScene("GameOver");
+            anim.SetTrigger("Dead");
+            GameManager.instance.lives--;
+            currentHealth = 10;
+            healthBar.SetHealth(currentHealth);
+            Debug.Log("Dead");
+            Invoke("ReloadLevel", 1f);
         }
+    }
+     public void ReloadLevel()
+    {
+        SceneManager.LoadScene("RyansScene");
     }
 }
             

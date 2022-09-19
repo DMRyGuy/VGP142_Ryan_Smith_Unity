@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class CanvasManager : MonoBehaviour
 {
+
+    [Header("Images")]
+    public Image[] hearts;
 
     [Header("Buttons")]
     public Button startButton;
@@ -27,10 +31,15 @@ public class CanvasManager : MonoBehaviour
     [Header("Slider")]
     public Slider volSlider;
 
+    public AudioMixer mixer;
+
     public void StartGame()
     {
         SceneManager.LoadScene("RyansScene");
     }
+
+    public AudioClip pauseSound;
+    public AudioClip unpauseSound;
 
     public void ShowMainMenu()
     {
@@ -48,14 +57,12 @@ public class CanvasManager : MonoBehaviour
     {
         if (volSliderText)
             volSliderText.text = value.ToString();
+
+        if(mixer) 
+           mixer.SetFloat("MasterVol", value);
     }
 
-    void OnLifeValueChange(int value)
-    {
-        if (livesText)
-            livesText.text = value.ToString();
-    }
-        void Start()
+    void Start()
     {
         if (startButton)
             startButton.onClick.AddListener(() => StartGame());
@@ -81,6 +88,15 @@ public class CanvasManager : MonoBehaviour
 
         if(returnToGameButton)
             returnToGameButton.onClick.AddListener(() => ReturnToGame());
+
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            if (i < GameManager.instance.lives)
+                hearts[i].gameObject.SetActive(true);
+            else
+                hearts[i].gameObject.SetActive(false);
+        }
+
     }
     void Update()
     {
@@ -130,4 +146,3 @@ public class CanvasManager : MonoBehaviour
 #endif
     }
 }
-
