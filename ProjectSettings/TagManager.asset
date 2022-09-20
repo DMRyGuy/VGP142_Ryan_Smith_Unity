@@ -13,6 +13,7 @@ TagManager:
   - Attach
   - Weapon
   - HoT
+  - SuperUp
   layers:
   - Default
   - TransparentFX

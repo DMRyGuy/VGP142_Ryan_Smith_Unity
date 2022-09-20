@@ -14,6 +14,8 @@ public class Character : MonoBehaviour
     Animator anim;
     ObjectSounds sfxManager;
 
+    public GameObject PlasmaExplosionEffect;
+
     public AudioClip jumpSound;
     public AudioMixerGroup soundFXGroup;
     public AudioClip pickupSound;
@@ -172,12 +174,13 @@ public class Character : MonoBehaviour
         }
         if (collision.gameObject.tag == "BoostUp")
         {
-            TakeDamage(-15); ;
+            speed = 250f;
             Debug.Log("Player speed increased effect");
         }
         if (collision.gameObject.tag == "SuperUp")
         {
-            TakeDamage(-15); ;
+            StartCoroutine(SuperUpTimer(3f));
+
             Debug.Log("Player is Super I'm just sayin");
         }
     }
@@ -199,6 +202,22 @@ public class Character : MonoBehaviour
      public void ReloadLevel()
     {
         SceneManager.LoadScene("RyansScene");
+    }
+
+    IEnumerator SuperUpTimer(float waitTime)
+    {
+
+        GameObject PowerUpEffect;
+        //Do something before waiting.
+
+        PowerUpEffect = Instantiate(PlasmaExplosionEffect, transform.position, transform.rotation);
+        PowerUpEffect.transform.parent = transform;
+
+        //yield on a new YieldInstruction that waits for X seconds.
+        yield return new WaitForSeconds(waitTime);
+
+        //Do something after waiting.
+        Destroy(gameObject);
     }
 }
             
