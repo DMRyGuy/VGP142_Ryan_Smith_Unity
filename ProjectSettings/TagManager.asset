@@ -12,6 +12,7 @@ TagManager:
   - PatrolNode
   - Attach
   - Weapon
+  - HoT
   layers:
   - Default
   - TransparentFX

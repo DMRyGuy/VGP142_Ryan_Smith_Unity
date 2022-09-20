@@ -43,7 +43,7 @@ public class Character : MonoBehaviour
     public Rigidbody projectilePrefab;
     public Transform projectileSpawnPoint;
 
-    public int maxHealth = 10;
+    public int maxHealth = 50;
     public int currentHealth;
 
     public HealthBar healthBar;
@@ -153,15 +153,32 @@ public class Character : MonoBehaviour
         {
             TakeDamage(-5);;
             Destroy(collision.gameObject);
+            Debug.Log("Player benifitted from a PickUp");
         }
         if (collision.gameObject.tag == "Enemy")
         {
             TakeDamage(10);
+            Debug.Log("Player has been damagede an Enemy");
         }
          if (collision.gameObject.tag == "DoT")
         {
             TakeDamage(5);
             Debug.Log("Player is being damaged by Dot effect");
+        }
+        if(collision.gameObject.tag == "HoT")
+        {
+            TakeDamage(-15);
+            Debug.Log("Player is being healed by HoT effect");
+        }
+        if (collision.gameObject.tag == "BoostUp")
+        {
+            TakeDamage(-15); ;
+            Debug.Log("Player speed increased effect");
+        }
+        if (collision.gameObject.tag == "SuperUp")
+        {
+            TakeDamage(-15); ;
+            Debug.Log("Player is Super I'm just sayin");
         }
     }
 

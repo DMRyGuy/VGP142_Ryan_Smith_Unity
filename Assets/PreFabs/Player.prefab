@@ -1499,6 +1499,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 928f08aa9b4f6ab4f9a65d33a5ac87c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpSound: {fileID: 8300000, guid: af66162561d2eed40ad49268cab318bb, type: 3}
+  soundFXGroup: {fileID: 24300002, guid: 49a0e8e010d35664ab43bc084ce2aac8, type: 2}
+  pickupSound: {fileID: 8300000, guid: c48a972d3d024c2408a3331750786a29, type: 3}
+  deathSound: {fileID: 0}
+  hitSound: {fileID: 0}
+  punchSound: {fileID: 0}
+  kickSound: {fileID: 0}
+  footstepSound: {fileID: 8300000, guid: a028be27b3c28494592f11a6ae991669, type: 3}
   speed: 25
   gravity: 9.81
   jumpSpeed: 20
