@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartingLives: 3
   maxLives: 3
-  playerPrefab: {fileID: 5297460971714493789, guid: bc51e34d171859c48b2a5451bdc2f049, type: 3}
+  playerPrefab: {fileID: 4153361772167084340, guid: bc51e34d171859c48b2a5451bdc2f049, type: 3}
   playerInstance: {fileID: 0}
   currentLevel: {fileID: 0}
   onLifeValueChanged:
